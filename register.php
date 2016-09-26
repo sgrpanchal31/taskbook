@@ -64,7 +64,7 @@
           
               <!-- <span style="color:red;"><?php echo $error4; ?></span><br> -->
               <input style="background-color:#26A69A;padding:10px;color:white;margin-left:0px;" id="button" type="submit" name="register" value="Register"><br><br>
-              <div >Or Go back to <a  onclick="window.location='index.html'">Login</a></div>
+              <div >Or Go back to <a  onclick="window.location='index.php'">Login</a></div>
             </form>
            </div>
         </div>
