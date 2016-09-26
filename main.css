@@ -4,7 +4,7 @@ body{
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	color:white;
+	color:black;
 }
 .outerBox{
 	position: absolute;
@@ -26,3 +26,39 @@ body{
 	font-weight: 200;
 	text-align: center;
 }
+.input-field input[type=text]{
+	border-bottom: 1px solid #000;
+}
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+::-webkit-input-placeholder {
+   color: black;
+   font-weight: 300;
+}
+:-moz-placeholder { 
+   color: black;  
+}
+::-moz-placeholder {
+   color: black;  
+}
+:-ms-input-placeholder {  
+   color: black;  
+}
+.login{
+	font-weight: 300;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
