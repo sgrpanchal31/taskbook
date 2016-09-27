@@ -1,11 +1,11 @@
 <?php
 require_once 'connect.php';
-if(isset($_SESSION['username']) && $_SESSION['position']==0){
-		header("location: subHead.php");
-	}
-	if(isset($_SESSION['username']) && $_SESSION['position']==1){
-		header("location: head.php");
-	}
+if(!isset($_SESSION['username'])){
+	header('location: index.php');
+}
+if($_SESSION['position']!=0){
+  header('location: head.php');
+}
 ?>
 <!doctype html>
 <html>
