@@ -5,7 +5,7 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "dblogin";
+$dbname = "taskbook";
 
 try
 {
@@ -18,4 +18,27 @@ catch(PDOException $e)
      echo $e->getMessage();
      die();
 }
+class userEntry{
+	private $db;
+	function __construct($conn){
+		$this->db=$conn;
+	}
+		public function login($username,$password){
+			try{
+				$query=$this->db->query('SELECT * FROM memberlogin WHERE username=username');
+				$r=$query->fetch(PDO::FETCH_ASSOC);
+				if($r['password']==$password){
+					$_SESSION['username']=$username;
+					return true;
+				}else{
+					return false;
+				}
+			}
+			catch(PDOException $e){
+				echo $e->getMessage();
+			}
+		}
+	}
+	$user1 = new userEntry($conn);
+
 ?>
