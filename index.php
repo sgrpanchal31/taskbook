@@ -20,7 +20,8 @@
 				// echo $r['password'];
 				// echo $password; 
 				if($r['password']==$password){
-					echo 'its done';
+					// echo 'its done';
+					$_SESSION['position']=$r['position'];
 					$_SESSION['username']=$username;
 					return true;
 				}else{
@@ -37,8 +38,15 @@
 	if(isset($_POST['action'])){
 		$username=$_POST['username'];
 		$password=$_POST['password'];
+		// echo $user1->login($username,$password);
+		
 		if($user1->login($username,$password)){
-		header("Location : subHead.php");
+			if($_SESSION['position']==0){
+				header("location: subHead.php");
+			}
+			if($_SESSION['position']==1){
+				header("location: head.php");
+			}
 		}else{
 			
 			$error="Wrong details!";
