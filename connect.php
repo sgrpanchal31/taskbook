@@ -4,8 +4,8 @@ session_start();
 
 $servername = "localhost";
 $username = "root";
-$password = "";
-$dbname = "dblogin";
+$password = "root";
+$dbname = "taskbook";
 
 try
 {
