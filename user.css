@@ -1,0 +1,31 @@
+.taskHead{
+	position: relative;
+	width:100%;
+	margin: 0;
+}
+.taskHead h5{
+	margin: 0;
+	padding:10px 20px; 
+	font-weight: 300;
+	color:white;
+}
+.taskBox{
+	margin-top:20px;
+	padding-left: 0;
+
+}
+.taskBox p{
+	padding: 10px 20px;
+}
+.btnDiv{
+	width: 100%;
+	text-align: center;
+	margin: 30px 0;
+}
+.otherBox{
+	margin-top:20px;
+}
+
+#assign{
+	margin-top: 15px;
+}

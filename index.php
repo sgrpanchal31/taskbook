@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="script.js"></script>
 	<link rel="stylesheet" href="main.css">
 </head>
-<body>
+<body data-title="index">
 	<div class="outerBox"></div>
 	<div class="header">
 		<div class="container">
@@ -32,7 +32,6 @@
     					<i class="material-icons right">send</i>
   					</button>
 			</div>
-			<div >Or <a  onclick="window.location='register.php'">Register</a></div>
 		</div>
 	</div>
 </body>

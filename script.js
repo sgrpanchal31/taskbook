@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	$(".button-collapse").sideNav();
 	$(document).on('click', '.login', function() {
 		var username = $("username").val();
 		var password = $("password").val();
@@ -23,3 +24,4 @@ $(document).ready(function(){
 
 	});
 });
+
