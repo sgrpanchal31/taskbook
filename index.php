@@ -7,16 +7,43 @@
 	// 	header("Location : head.php");
 	// }
 	
+	class userEntry{
+			private $db;
+			function __construct($conn){
+				$this->db=$conn;
+			}
+		public function login($username,$password){
+			try{
+				$query=$this->db->prepare('SELECT * FROM memberlogin WHERE username=:username');
+				$query->execute(array(':username'=>$username));
+				$r=$query->fetch(PDO::FETCH_ASSOC);
+				// echo $r['password'];
+				// echo $password; 
+				if($r['password']==$password){
+					echo 'its done';
+					$_SESSION['username']=$username;
+					return true;
+				}else{
+					return false;
+				}
+			}
+			catch(PDOException $e){
+				echo $e->getMessage();
+			}
+		}
+	}
+	$user1 = new userEntry($conn);
 
 	if(isset($_POST['action'])){
 		$username=$_POST['username'];
 		$password=$_POST['password'];
 		if($user1->login($username,$password)){
-			header("Location : subHead.php");
+		header("Location : subHead.php");
 		}else{
-			header("Location : www.google.com");
+			
+			$error="Wrong details!";
 		}
-
+ 
 	}
 ?>
 <!doctype html>
@@ -29,7 +56,7 @@
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-	<script type="text/javascript" src="script.js"></script>
+	<!-- <script type="text/javascript" src="script.js"></script> -->
 	<link rel="stylesheet" href="main.css">
 </head>
 <body data-title="index">
