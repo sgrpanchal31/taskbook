@@ -6,9 +6,6 @@
 	if(isset($_SESSION['username']) && $_SESSION['position']==1){
 		header("location: head.php");
 	}
-	
-	include_once 'class.php';
-	$user1 = new userEntry($conn);
 
 	if(isset($_POST['action'])){
 		$username=$_POST['username'];
@@ -39,7 +36,6 @@
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-	<!-- <script type="text/javascript" src="script.js"></script> -->
 	<link rel="stylesheet" href="main.css">
 </head>
 <body data-title="index">

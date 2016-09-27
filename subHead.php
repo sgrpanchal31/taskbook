@@ -17,7 +17,7 @@ if($_SESSION['position']!=0){
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="subHead.js"></script>
 	<link rel="stylesheet" href="user.css">
 </head>
 <body data-title="subHead">
@@ -26,7 +26,7 @@ if($_SESSION['position']!=0){
 			<div class="container">
 			    <div class="nav-wrapper black-text">
 			      	<a href="#!" class="brand-logo" style="font-weight: 300;">Taskbook</a>
-			      	<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons black-text">menu</i></a>
+			      	<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			      	<ul class="right hide-on-med-and-down black-text">
 			        	<li><a href="logout.php" >Logout</a></li>
 			      </ul>
@@ -63,27 +63,8 @@ if($_SESSION['position']!=0){
               				<th data-field="name">Event Assigned</th>
           				</tr>
         			</thead>
-        			<tbody>
-          				<tr>
-            				<td>teammate1</td>
-            				<td>Lorem ipsum dolor sit amet, audiam accusam ut has, ne meis liber ius. Petentium quaerendum ei mel, sea mutat causae legendos te. Ne deserunt pertinax signiferumque eos.</td>
-          				</tr>
-          				<tr>
-            				<td>Teammate2</td>
-            				<td>Lorem ipsum dolor sit amet, audiam accusam ut has, ne meis liber ius. Petentium quaerendum ei mel, sea mutat causae legendos te. Ne deserunt pertinax signiferumque eos.</td>
-          				</tr>
-          				<tr>
-            				<td>teammate3</td>
-            				<td>Lorem ipsum dolor sit amet, audiam accusam ut has, ne meis liber ius. Petentium quaerendum ei mel, sea mutat causae legendos te. Ne deserunt pertinax signiferumque eos.</td>
-          				</tr>
-          				<tr>
-            				<td>teammate4</td>
-            				<td>Lorem ipsum dolor sit amet, audiam accusam ut has, ne meis liber ius. Petentium quaerendum ei mel, sea mutat causae legendos te. Ne deserunt pertinax signiferumque eos.</td>
-          				</tr>
-          				<tr>
-            				<td>teammate5</td>
-            				<td>Lorem ipsum dolor sit amet, audiam accusam ut has, ne meis liber ius. Petentium quaerendum ei mel, sea mutat causae legendos te. Ne deserunt pertinax signiferumque eos.</td>
-          				</tr>
+        			<tbody id="tableBody">
+          				
         			</tbody>
       			</table>
 			</div>

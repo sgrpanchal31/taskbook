@@ -15,8 +15,10 @@ try
 }
 catch(PDOException $e)
 {
-     echo $e->getMessage();
-     // die();
+    echo $e->getMessage();
+    die();
 }
 
+include_once 'class.php';
+	$user1 = new userEntry($conn);
 ?>

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	$(".button-collapse").sideNav();
 	$(function(){
 		$.ajax({
 	    	url:"taskbook.php",
@@ -6,8 +7,11 @@ $(document).ready(function(){
 			data:"actionfunction=showData",
       		cache: false,
       	    success: function(response){		 
-				//function for writing out in subhead.php
+				$('#tableBody').html(response);
+			},
+			error: function(){
+				$('#tableBody').html("can't load the data");
 			}	
 		});
 	});
-};
+});
