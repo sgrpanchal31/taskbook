@@ -1,3 +1,12 @@
+<?php
+require 'connect.php';
+if(isset($_SESSION['username']) && $_SESSION['position']==0){
+    header("location: subHead.php");
+  }
+  if(isset($_SESSION['username']) && $_SESSION['position']==1){
+    header("location: head.php");
+  }
+?>
 <!doctype html>
 <html>
 <head>

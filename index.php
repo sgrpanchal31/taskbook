@@ -1,38 +1,13 @@
 <?php
-	require 'connect.php';
-	// if(isset($_SESSION['username']) && $_SESSION['position']==0){
-	// 	header("Location : subHead.php");
-	// }
-	// if(isset($_SESSION['username']) && $_SESSION['position']==1){
-	// 	header("Location : head.php");
-	// }
-	
-	class userEntry{
-			private $db;
-			function __construct($conn){
-				$this->db=$conn;
-			}
-		public function login($username,$password){
-			try{
-				$query=$this->db->prepare('SELECT * FROM memberlogin WHERE username=:username');
-				$query->execute(array(':username'=>$username));
-				$r=$query->fetch(PDO::FETCH_ASSOC);
-				// echo $r['password'];
-				// echo $password; 
-				if($r['password']==$password){
-					// echo 'its done';
-					$_SESSION['position']=$r['position'];
-					$_SESSION['username']=$username;
-					return true;
-				}else{
-					return false;
-				}
-			}
-			catch(PDOException $e){
-				echo $e->getMessage();
-			}
-		}
+	require_once 'connect.php';
+	if(isset($_SESSION['username']) && $_SESSION['position']==0){
+		header("location: subHead.php");
 	}
+	if(isset($_SESSION['username']) && $_SESSION['position']==1){
+		header("location: head.php");
+	}
+	
+	include_once 'class.php';
 	$user1 = new userEntry($conn);
 
 	if(isset($_POST['action'])){
@@ -49,7 +24,7 @@
 			}
 		}else{
 			
-			$error="Wrong details!";
+			echo "Password didn't match!";
 		}
  
 	}
