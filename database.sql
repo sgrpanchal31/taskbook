@@ -13,6 +13,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `taskbook`
 --
+CREATE DATABASE `taskbook` ;
 
 -- --------------------------------------------------------
 
@@ -20,7 +21,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `memberLogIn`
 --
 
-CREATE TABLE `memberLogIn` (
+CREATE TABLE `taskbook`.`memberLogIn` (
   `ID` int(3) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
@@ -31,7 +32,7 @@ CREATE TABLE `memberLogIn` (
 -- Dumping data for table `memberLogIn`
 --
 
-INSERT INTO `memberLogIn` (`ID`, `username`, `password`, `position`) VALUES
+INSERT INTO `taskbook`.`memberLogIn` (`ID`, `username`, `password`, `position`) VALUES
 (1, 'sagar', 'sagar', 0),
 (2, 'ashutosh', 'ashutosh', 0),
 (4, 'dipramit', 'dipramit', 0),
@@ -56,7 +57,7 @@ INSERT INTO `memberLogIn` (`ID`, `username`, `password`, `position`) VALUES
 -- Table structure for table `taskAssign`
 --
 
-CREATE TABLE `taskAssign` (
+CREATE TABLE `taskbook`.`taskAssign` (
   `ID` int(2) NOT NULL,
   `username` varchar(30) NOT NULL,
   `task` varchar(255) DEFAULT NULL,
@@ -70,14 +71,14 @@ CREATE TABLE `taskAssign` (
 --
 -- Indexes for table `memberLogIn`
 --
-ALTER TABLE `memberLogIn`
+ALTER TABLE `taskbook`.`memberLogIn`
   ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `taskAssign`
 --
-ALTER TABLE `taskAssign`
+ALTER TABLE `taskbook`.`taskAssign`
   ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `username` (`username`);
 
@@ -88,10 +89,10 @@ ALTER TABLE `taskAssign`
 --
 -- AUTO_INCREMENT for table `memberLogIn`
 --
-ALTER TABLE `memberLogIn`
+ALTER TABLE `taskbook`.`memberLogIn`
   MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `taskAssign`
 --
-ALTER TABLE `taskAssign`
+ALTER TABLE `taskbook`.`taskAssign`
   MODIFY `ID` int(2) NOT NULL AUTO_INCREMENT;
