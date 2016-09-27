@@ -4,7 +4,11 @@ session_start();
 
 $servername = "localhost";
 $username = "root";
+<<<<<<< HEAD
 $password = "";
+=======
+$password = "root";
+>>>>>>> 96fa403937bd4fd7953c5913f8fa8fe20a29596e
 $dbname = "taskbook";
 
 try
