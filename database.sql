@@ -3,17 +3,17 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Sep 27, 2016 at 03:36 AM
+-- Generation Time: Sep 28, 2016 at 07:03 PM
 -- Server version: 5.5.42
 -- PHP Version: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+CREATE DATABASE `taskbook`;
 --
 -- Database: `taskbook`
 --
-CREATE DATABASE `taskbook` ;
 
 -- --------------------------------------------------------
 
@@ -62,24 +62,46 @@ CREATE TABLE `taskbook`.`taskAssign` (
   `username` varchar(30) NOT NULL,
   `task` varchar(255) DEFAULT NULL,
   `assignedby` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `taskAssign`
+--
+
+INSERT INTO `taskbook`.`taskAssign` (`ID`, `username`, `task`, `assignedby`) VALUES
+(1, 'sagar', 'Rock the party!', 'harsh'),
+(2, 'ashutosh', NULL, NULL),
+(4, 'dipramit', NULL, NULL),
+(5, 'isha', NULL, NULL),
+(6, 'shivanshu', 'raftaar', 'ankit'),
+(7, 'rishit', 'krssg rockr', 'rohitkumar'),
+(8, 'paras', 'kuch bhi', 'harsh'),
+(9, 'sahil', NULL, NULL),
+(10, 'shubham', NULL, NULL),
+(11, 'abhinav', 'adadasdada', 'himanshu'),
+(12, 'harshit', NULL, NULL),
+(13, 'pradhumn', 'dfsdfsdfsf.sd fsd', 'rohitboga');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `taskTable`
+--
+
+CREATE TABLE `taskbook`.`taskTable` (
+  `ID` int(4) NOT NULL,
+  `assignedBy` varchar(30) NOT NULL,
+  `assignedTo` varchar(30) NOT NULL,
+  `task` varchar(255) NOT NULL,
+  `status` int(2) NOT NULL,
+  `assignedTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `completedTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
-INSERT INTO `taskbook`.`taskAssign` (`ID`, `username`, `task`, `assignedby`) VALUES
-(1, 'sagar','' ,'' ),
-(2, 'ashutosh',' ','' ),
-(4, 'dipramit','' ,'' ),
-(5, 'isha','' ,'' ),
-(6, 'shivanshu','' ,'' ),
-(7, 'rishit','' ,'' ),
-(8, 'paras','' ,'' ),
-(9, 'sahil','' ,'' ),
-(10, 'shubham','' ,'' ),
-(11, 'abhinav','' ,'' ),
-(12, 'harshit','' ,'' ),
-(13, 'pradhumn','' ,'' );
+
 --
 -- Indexes for table `memberLogIn`
 --
@@ -95,6 +117,12 @@ ALTER TABLE `taskbook`.`taskAssign`
   ADD UNIQUE KEY `username` (`username`);
 
 --
+-- Indexes for table `taskTable`
+--
+ALTER TABLE `taskbook`.`taskTable`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -107,4 +135,9 @@ ALTER TABLE `taskbook`.`memberLogIn`
 -- AUTO_INCREMENT for table `taskAssign`
 --
 ALTER TABLE `taskbook`.`taskAssign`
-  MODIFY `ID` int(2) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(2) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `taskTable`
+--
+ALTER TABLE `taskbook`.`taskTable`
+  MODIFY `ID` int(4) NOT NULL AUTO_INCREMENT;

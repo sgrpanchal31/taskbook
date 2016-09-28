@@ -1,13 +1,6 @@
 <?php
 require_once 'connect.php';
-
-class subHead{
-	public $ID, $username, $task, $assignedby, $str;
-
-	public function __construct() {
-		$this->str = "<tr><td>".$this->username."</td><td>".$this->task."</td></tr>";
-	}
-}
+require_once 'class.subHead.php';
 
 if(isset($_REQUEST['actionfunction']) && $_REQUEST['actionfunction']!=''){
 	$actionfunction = $_REQUEST['actionfunction'];
@@ -18,12 +11,14 @@ if(isset($_REQUEST['actionfunction']) && $_REQUEST['actionfunction']!=''){
 function showData($data,$conn){
 	$user_check=$_SESSION['username'];
 
-	$query = $conn->query('SELECT * FROM taskAssign');
-	$subheads = $query->fetchAll(PDO::FETCH_CLASS, "subHead");
-	$string = "";
-	foreach($subheads as $subhead){
-		$string .= $subhead->str;
-	}
+	// $query = $conn->query('SELECT * FROM taskAssign');
+	// $subheads = $query->fetchAll(PDO::FETCH_CLASS, "subHead");
+	// $string = "";
+	// foreach($subheads as $subhead){
+	// 	$string .= $subhead->str;
+	// }
+	$object = new allSubHead($conn);
+	$string = $object->importData();
 
 	
 	// while($r = $query->fetch(PDO::FETCH_OBJ)) {
