@@ -1,10 +1,18 @@
 <?php
 class subHead{
 
-	public $ID, $username, $task, $assignedby, $str;
+	public $ID, $assignedTo, $task, $assignedBy, $str,$assignedTime,$completedTime;
 	public function __construct() {
-		$this->str = "<tr><td>".$this->assignedTo."</td><td>".$this->task."<br>"."<span style='font-size:10px;'>Assigned By-".$this->assignedBy."&nbsp; At-".$this->assignedTime."</span>"."</td></tr>";
 		
+		// else if($this->assignedTo==0  || $this->status==1){
+		// 		$_SESSION['task']='No task Assigned';
+		// 	}
+
+		
+		if($this->status==0){
+		$this->str = "<tr><td>".$this->assignedTo."</td><td>".$this->task."<br>"."<span style='font-size:10px;'>Assigned By-".$this->assignedBy."&nbsp; At-".$this->assignedTime."</span>"."</td></tr>";
+	}
+
 	}
 }
 
@@ -22,6 +30,33 @@ class allSubHead{
 			$string .= $subhead->str;
 		}
 		return $string;
+	}
+	public function taskData($username){
+			$query=$this->db->prepare('SELECT * FROM taskTable WHERE assignedTo=:username');
+			$query->execute(array(':username'=>$username));
+			$r=$query->fetch(PDO::FETCH_ASSOC);
+			if($r['status']==0){
+			  return $r['task'];
+			}else{
+				return '';
+			}
+			// if($this->assignedTo==$_SESSION['username'] && $this->status==0){
+			
+			// 	$_SESSION['task']=$this->task;
+			
+			// }
+	}
+	public function finish($username){
+			$query=$this->db->prepare('SELECT * FROM taskTable WHERE assignedTo=:username');
+			$query->execute(array(':username'=>$username));
+			$r=$query->fetch(PDO::FETCH_ASSOC);
+			if($r['status']==0){
+				 $r['status']=1;
+				 return $r['status'];
+			}else{
+				return $r['status'];
+			}
+
 	}
 }
 

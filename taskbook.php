@@ -28,5 +28,16 @@ function showData($data,$conn){
 
 	echo $string;
 }
+function taskData($data,$conn){
+	$object1 = new allSubHead($conn);
+	$task= $object1->taskData($_SESSION['username']);
+	echo $task;
+}
+function finish($data,$conn){
+	$object2 = new allSubHead($conn);
+	$value= $object2->taskData($_SESSION['username']);
+	echo $value;
+
+}
 
 ?>

@@ -48,11 +48,12 @@ if($_SESSION['position']!=0){
 		<div class="row">
 			<div class="col s12 m5 l5 z-depth-1 taskBox" style="padding: 0;">
 				<div class="taskHead cyan accent-4"><h5>Your Task</h5></div>
-				<p>Lorem ipsum dolor sit amet, audiam accusam ut has, ne meis liber ius. Petentium quaerendum ei mel, sea mutat causae l</p>
+				<p class="response"></p>
 				<div class="btnDiv">
-					<button class="btn waves-effect waves-light cyan" type="submit" name="action">Report finished
+					<button class="btn waves-effect waves-light cyan finish" type="submit" name="action">Report finished
 	  				</button>
 	  			</div>
+	  			
 			</div>
 			<div class="col s12 m6 push-m1 l6 push-l1 z-depth-1 otherBox" style="padding: 0;">
 				<div class="taskHead cyan accent-4" ><h5>Your Teammate's Task</h5></div>
