@@ -1,11 +1,7 @@
 <?php
 class subHead{
 
-<<<<<<< HEAD
 	public $ID, $assignedTo, $task, $assignedBy, $str,$assignedTime,$completedTime;
-=======
-	public $ID, $assignedBy, $assignedTo, $task, $status, $assignedTime, $completedTime, $str;
->>>>>>> 73fe493bdaf312d30ccd2d3528ed17876bb3e021
 	public function __construct() {
 		
 		// else if($this->assignedTo==0  || $this->status==1){
