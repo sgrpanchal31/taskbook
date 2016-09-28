@@ -40,7 +40,7 @@ if($_SESSION['position']!=0){
 	<nav class="cyan accent-2">
 		<div class="container">
 		    <div class="nav-wrapper black-text">
-		      	<a href="#!" class="brand-logo black-text" style="font-weight: 300;"><i class="small material-icons">person</i>Loggedin person</a>
+		      	<a href="#!" class="brand-logo black-text" style="font-weight: 300;"><i class="small material-icons">person</i><?php $user=$_SESSION['username']; echo $user;?></a>
 			</div>
 	    </div>
 	</nav>
@@ -50,7 +50,7 @@ if($_SESSION['position']!=0){
 				<div class="taskHead cyan accent-4"><h5>Your Task</h5></div>
 				<p>Lorem ipsum dolor sit amet, audiam accusam ut has, ne meis liber ius. Petentium quaerendum ei mel, sea mutat causae l</p>
 				<div class="btnDiv">
-					<button class="btn waves-effect waves-light" type="submit" name="action">Report finished
+					<button class="btn waves-effect waves-light cyan" type="submit" name="action">Report finished
 	  				</button>
 	  			</div>
 			</div>

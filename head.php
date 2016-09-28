@@ -49,7 +49,7 @@ if($_SESSION['position']!=1){
 	<nav class="cyan accent-2">
 		<div class="container">
 		    <div class="nav-wrapper black-text">
-		      	<a href="#!" class="brand-logo black-text" style="font-weight: 300;"><i class="small material-icons">supervisor_account</i>Loggedin head</a>
+		      	<a href="#!" class="brand-logo black-text" style="font-weight: 300;"><i class="small material-icons">supervisor_account</i><?php $user=$_SESSION['username']; echo $user;?></a>
 			</div>
 			<button class="btn waves-effect waves-light cyan right modal-trigger" data-target="modal1" 
 			id="assign" >Assign Task</button>

@@ -10,7 +10,7 @@ $(document).ready(function(){
 				$('#tableBody').html(response);
 			},
 			error: function(){
-				$('#tableBody').html("can't load the data");
+				$('#tableBody').html("Can't load the data");
 			}	
 		});
 	});
