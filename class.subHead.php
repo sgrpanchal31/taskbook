@@ -1,7 +1,7 @@
 <?php
 class subHead{
 
-	public $ID, $username, $task, $assignedby, $str;
+	public $ID, $assignedBy, $assignedTo, $task, $status, $assignedTime, $completedTime, $str;
 	public function __construct() {
 		$this->str = "<tr><td>".$this->assignedTo."</td><td>".$this->task."<br>"."<span style='font-size:10px;'>Assigned By-".$this->assignedBy."&nbsp; At-".$this->assignedTime."</span>"."</td></tr>";
 		
