@@ -17,7 +17,6 @@ if($_SESSION['position']!=0){
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-	<script type="text/javascript" src="subHead.js"></script>
 	<link rel="stylesheet" href="user.css">
 </head>
 <body data-title="subHead">
@@ -71,6 +70,8 @@ if($_SESSION['position']!=0){
 			</div>
 		</div>
 	</div>
+
+	<script type="text/javascript" src="subHead.js"></script>
 </body>
 </html>
 

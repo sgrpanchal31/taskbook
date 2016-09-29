@@ -79,8 +79,9 @@ class allSubHead{
 			$query->execute(array(':username'=>$username));
 			while($r=$query->fetch(PDO::FETCH_ASSOC)){
 				if($r['status']==0){
-					 $r['status']=1;
-				 
+					  $sql =$this->db->prepare("UPDATE taskTable SET status=1 WHERE assignedTo=:username");
+				 	  $t = $sql->execute(array(':username'=>$username));
+						return $t;
 				}
 		
 
@@ -108,7 +109,7 @@ class allSubHead{
 		while($r=$query->fetch(PDO::FETCH_OBJ)){
 			$string .= $r->assignedTo. '<br>';
 		}
-		return '$string';
+		return $string;
 	}
 }
 

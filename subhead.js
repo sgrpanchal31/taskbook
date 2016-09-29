@@ -21,7 +21,7 @@ $(document).ready(function(){
 			data:"actionfunction=taskData",
       		cache: false,
       	    success: function(response){
-      	    	 console.log(response);
+      	    	 // console.log(response);
       	    	 if(parseInt(response)!=0){	
       	    	  	// alert(response);	 
 					$('.response').html(response);
@@ -59,21 +59,20 @@ $(document).ready(function(){
 // 			}	
 // 		});
 // 	});
-// });
-	
-	
+// });	
 });
 $('.finish').click(function(){
-		$.ajax({
-	    	url:"taskbook.php",
-      	 	type:"POST",
-			data:"actionfunction=finish",
-      		cache: false,
-      	    success: function(response){
-      	    	
-			},
-			error: function(){
-					
-			}	
-		});
+	// console.log('rty');
+	$.ajax({
+    	url:"taskbook.php",
+  	 	type:"POST",
+		data:"actionfunction=finish",
+  		cache: false,
+  	    success: function(response){
+  	    	window.location.reload();
+		},
+		error: function(){
+				
+		}	
 	});
+});

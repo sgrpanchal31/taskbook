@@ -4,7 +4,6 @@ require_once 'class.subHead.php';
 
 if(isset($_REQUEST['actionfunction']) && $_REQUEST['actionfunction']!=''){
 	$actionfunction = $_REQUEST['actionfunction'];
-	
 	call_user_func($actionfunction,$_REQUEST,$conn);
 }
 
@@ -35,7 +34,7 @@ function taskData($data,$conn){
 }
 function finish($data,$conn){
 	$object2 = new allSubHead($conn);
-	$value= $object2->taskData($_SESSION['username']);
+	$value= $object2->finish($_SESSION['username']);
 	echo $value;
 
 }
@@ -47,10 +46,9 @@ function showDataHead($data,$conn){
 	echo $string;
 }
 function showAvailSubHead($data,$conn){
-	echo 'ede';
 	$object4 = new allSubHead($conn);
 	$string = $object4->showAvailSubHead();
-	var_dump($string);
+	echo $string;
 }
 
 ?>
