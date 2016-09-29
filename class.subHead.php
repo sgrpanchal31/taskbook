@@ -50,30 +50,43 @@ class allSubHead{
 	}
 
 	public function taskData($username){
+			$task=null;
 			$query=$this->db->prepare('SELECT * FROM taskTable WHERE assignedTo=:username');
 			$query->execute(array(':username'=>$username));
-			$r=$query->fetch(PDO::FETCH_ASSOC);
-			if($r['status']==0){
-			  return $r['task'];
-			}else{
-				return '';
+			while($r=$query->fetch(PDO::FETCH_ASSOC)){
+				if($r['status']==0 ){
+			  		$task=$r['task'];
+				}
+				// else{
+				
+				// 	return 'No task Assigned';
+				// }
+			};
+			if($task!=null){
+				return $task;
+			} else{
+			return 0;
 			}
 			// if($this->assignedTo==$_SESSION['username'] && $this->status==0){
 			
 			// 	$_SESSION['task']=$this->task;
 			
 			// }
+	
 	}
 	public function finish($username){
 			$query=$this->db->prepare('SELECT * FROM taskTable WHERE assignedTo=:username');
 			$query->execute(array(':username'=>$username));
-			$r=$query->fetch(PDO::FETCH_ASSOC);
-			if($r['status']==0){
-				 $r['status']=1;
-				 return $r['status'];
-			}else{
-				return $r['status'];
-			}
+			while($r=$query->fetch(PDO::FETCH_ASSOC)){
+				if($r['status']==0){
+					 $r['status']=1;
+				 
+				}
+		
+
+	
+ 			}
+ 			return true;
 	}
 	//======================head.php functions====================
 
@@ -86,15 +99,16 @@ class allSubHead{
 		return $string;
 	}
 	public function showAvailSubHead() {
-		$number='0';
+		echo 'rrc';
+		$number=0;
 		$query=$this->db->prepare('SELECT * FROM taskTable WHERE status!=:number1');
 		$query->execute(array(':number1'=>$number));
 		//$r=$query->fetch(PDO::FETCH_ASSOC);
-		$string = "";
+		$string = "gctg";
 		while($r=$query->fetch(PDO::FETCH_OBJ)){
-			$string .= $r->assignedTo, '<br>';
+			$string .= $r->assignedTo. '<br>';
 		}
-		return $string;
+		return '$string';
 	}
 }
 

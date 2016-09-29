@@ -47,9 +47,10 @@ function showDataHead($data,$conn){
 	echo $string;
 }
 function showAvailSubHead($data,$conn){
+	echo 'ede';
 	$object4 = new allSubHead($conn);
 	$string = $object4->showAvailSubHead();
-	echo $string;
+	var_dump($string);
 }
 
 ?>
