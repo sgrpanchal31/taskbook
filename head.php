@@ -64,7 +64,7 @@ if($_SESSION['position']!=1){
           					<label for="textarea1">Write the task</label>
         				</div>
                         <div class="row col s12" id="availSubHead">
-            				<p class="input-field col s4">
+            				<!-- <p class="input-field col s4">
           						<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
           						<label for="filled-in-box">Filled in</label>
         					</p>
@@ -79,7 +79,7 @@ if($_SESSION['position']!=1){
         					<p class="input-field col s4">
           						<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
           						<label for="filled-in-box">Filled in</label>
-        					</p>
+        					</p> -->
                         </div>
   					</div>
     			</div>

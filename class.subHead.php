@@ -99,15 +99,18 @@ class allSubHead{
 		}
 		return $string;
 	}
-	public function showAvailSubHead() {
-		
+	public function showAvailSubHead() {	
 		$number=0;
-		$query=$this->db->prepare('SELECT * FROM taskTable WHERE status!=:number1');
-		$query->execute(array(':number1'=>$number));
+		$query=$this->db->prepare('SELECT DISTINCT `assignedTo` FROM `taskTable` WHERE `status`!=:number1 EXCEPT SELECT DISTINCT `assignedTo` FROM `taskTable` WHERE `status`=:number1' );
+		$query->execute(array(':number1'=>$number, 'number2'=>$number));
 		//$r=$query->fetch(PDO::FETCH_ASSOC);
 		$string = "";
 		while($r=$query->fetch(PDO::FETCH_OBJ)){
 			$string .= $r->assignedTo. '<br>';
+			// $string .= '<p class="input-field col s4">
+   //        						<input type="checkbox" class="filled-in" id="'.$r->assignedTo.'" checked="checked" />
+   //        						<label for="'.$r->assignedTo.'">'.$r->assignedTo.'</label>
+   //      					</p>';
 		}
 		return $string;
 	}
