@@ -39,6 +39,18 @@ function finish($data,$conn){
 	echo $value;
 
 }
+//===============head.php functions======================
+function showDataHead($data,$conn){
+
+	$object3 = new allSubHead($conn);
+	$string = $object3->importsubHeadData();
+	echo $string;
+}
+function showAvailSubHead($data,$conn){
+	$object4 = new allSubHead($conn);
+	$string = $object4->showAvailSubHead();
+	echo $string;
+}
 
 ?>
 

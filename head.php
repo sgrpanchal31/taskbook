@@ -51,8 +51,7 @@ if($_SESSION['position']!=1){
 		    <div class="nav-wrapper black-text">
 		      	<a href="#!" class="brand-logo black-text" style="font-weight: 300;"><i class="small material-icons">supervisor_account</i><?php $user=$_SESSION['username']; echo $user;?></a>
 			</div>
-			<button class="btn waves-effect waves-light cyan right modal-trigger" data-target="modal1" 
-			id="assign" >Assign Task</button>
+			<button class="btn waves-effect waves-light cyan right modal-trigger" data-target="modal1" id="assign" >Assign Task</button>
 			
 	    </div>
 	</nav>
@@ -64,26 +63,28 @@ if($_SESSION['position']!=1){
           					<textarea id="textarea1" class="materialize-textarea"></textarea>
           					<label for="textarea1">Write the task</label>
         				</div>
-        				<p class="input-field col s4">
-      						<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-      						<label for="filled-in-box">Filled in</label>
-    					</p>
-    					<p class="input-field col s4">
-      						<input type="checkbox" class="filled-in" id="filled-in-box" disabled="disabled" checked="checked" />
-      						<label for="filled-in-box">Filled in</label>
-    					</p>
-    					<p class="input-field col s4">
-      						<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-      						<label for="filled-in-box">Filled in</label>
-    					</p>
-    					<p class="input-field col s4">
-      						<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-      						<label for="filled-in-box">Filled in</label>
-    					</p>
+                        <div class="row col s12" id="availSubHead">
+            				<p class="input-field col s4">
+          						<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+          						<label for="filled-in-box">Filled in</label>
+        					</p>
+        					<p class="input-field col s4">
+          						<input type="checkbox" class="filled-in" id="filled-in-box" disabled="disabled" checked="checked" />
+          						<label for="filled-in-box">Filled in</label>
+        					</p>
+        					<p class="input-field col s4">
+          						<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+          						<label for="filled-in-box">Filled in</label>
+        					</p>
+        					<p class="input-field col s4">
+          						<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+          						<label for="filled-in-box">Filled in</label>
+        					</p>
+                        </div>
   					</div>
     			</div>
     			<div class="modal-footer">
-    				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">submit</a>
+    				<a href="#!" class="waves-effect waves-green btn-flat ">submit</a>
       				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">dismiss</a>
     			</div>
   	</div>
@@ -99,51 +100,8 @@ if($_SESSION['position']!=1){
               				<th data-field="action">Action</th>
           				</tr>
         			</thead>
-        			<tbody>
-          				<tr>
-            				<td>teammate1</td>
-            				<td>Lorem ipsum dolor sit amet, audiam accusam ut has, ne meis liber ius. Petentium quaerendum ei mel, sea mutat causae legendos te. Ne deserunt pertinax signiferumque eos.</td>
-            				<td>
-            					<button class="btn waves-effect waves-light" type="submit" name="action">edit
-  								</button>
-  							</td>
-          				</tr>
-          				<tr>
-            				<td>teammate1</td>
-            				<td>Lorem ipsum dolor sit amet, audiam accusam ut has, ne meis liber ius. Petentium quaerendum ei mel, sea mutat causae legendos te. Ne deserunt pertinax signiferumque eos.</td>
-            				<td>
-            					<button class="btn waves-effect waves-light" type="submit" name="action">edit
-    							<i class="material-icons right">send</i>
-  								</button>
-  							</td>
-          				</tr>
-          				<tr>
-            				<td>teammate1</td>
-            				<td>Lorem ipsum dolor sit amet, audiam accusam ut has, ne meis liber ius. Petentium quaerendum ei mel, sea mutat causae legendos te. Ne deserunt pertinax signiferumque eos.</td>
-            				<td>
-            					<button class="btn waves-effect waves-light" type="submit" name="action">edit
-    							<i class="material-icons right">send</i>
-  								</button>
-  							</td>
-          				</tr>
-          				<tr>
-            				<td>teammate1</td>
-            				<td>Lorem ipsum dolor sit amet, audiam accusam ut has, ne meis liber ius. Petentium quaerendum ei mel, sea mutat causae legendos te. Ne deserunt pertinax signiferumque eos.</td>
-            				<td>
-            					<button class="btn waves-effect waves-light" type="submit" name="action">edit
-    							<i class="material-icons right">send</i>
-  								</button>
-  							</td>
-          				</tr>
-          				<tr>
-            				<td>teammate1</td>
-            				<td>Lorem ipsum dolor sit amet, audiam accusam ut has, ne meis liber ius. Petentium quaerendum ei mel, sea mutat causae legendos te. Ne deserunt pertinax signiferumque eos.</td>
-            				<td>
-            					<button class="btn waves-effect waves-light" type="submit" name="action">edit
-    							<i class="material-icons right">send</i>
-  								</button>
-  							</td>
-          				</tr>
+        			<tbody id="headTable">
+
         			</tbody>
       			</table>
 			</div>
