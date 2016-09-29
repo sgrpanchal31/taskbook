@@ -70,10 +70,10 @@ $('.finish').click(function(){
 			data:"actionfunction=finish",
       		cache: false,
       	    success: function(response){
-      	    	alert('fuck');
+      	    	
 			},
 			error: function(){
-				alert('fuck23');	
+					
 			}	
 		});
 	});

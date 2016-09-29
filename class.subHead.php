@@ -99,12 +99,12 @@ class allSubHead{
 		return $string;
 	}
 	public function showAvailSubHead() {
-		echo 'rrc';
+		
 		$number=0;
 		$query=$this->db->prepare('SELECT * FROM taskTable WHERE status!=:number1');
 		$query->execute(array(':number1'=>$number));
 		//$r=$query->fetch(PDO::FETCH_ASSOC);
-		$string = "gctg";
+		$string = "";
 		while($r=$query->fetch(PDO::FETCH_OBJ)){
 			$string .= $r->assignedTo. '<br>';
 		}
