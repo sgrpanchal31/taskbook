@@ -9,11 +9,11 @@ class subHead{
 		// 		$_SESSION['task']='No task Assigned';
 		// 	}
 
-			$this->line = "<tr>
+			$this->line = "<tr id=".$this->assignedTo.">
             				<td>".$this->assignedTo."</td>
             				<td>".$this->task."</td>
             				<td>
-            					<button class='btn waves-effect waves-light cyan' type='submit' name='action'>edit
+            					<button class='btn waves-effect waves-light cyan editbtn' type='submit' name='action'>edit
   								</button>
   							</td>
           				</tr>";
@@ -101,16 +101,17 @@ class allSubHead{
 	}
 	public function showAvailSubHead() {	
 		$number=0;
-		$query=$this->db->prepare('SELECT DISTINCT `assignedTo` FROM `taskTable` WHERE `status`!=:number1 EXCEPT SELECT DISTINCT `assignedTo` FROM `taskTable` WHERE `status`=:number1' );
+		//$query=$this->db->prepare('SELECT DISTINCT `assignedTo` FROM `taskTable` WHERE `status`!=:number1 - SELECT DISTINCT `assignedTo` FROM `taskTable` WHERE `status`=:number1' );
+		$query=$this->db->prepare('SELECT DISTINCT `t1`.`assignedTo` FROM `taskTable` `t1` WHERE `t1`.`status`!=:number1 LEFT JOIN `taskTable` `t2` ON `t1`.`assignedTo` = `t2`.`assignedTo` WHERE `t2`.`status`=:number1 AND `t2`.`taskTable` NULL' );
 		$query->execute(array(':number1'=>$number, 'number2'=>$number));
 		//$r=$query->fetch(PDO::FETCH_ASSOC);
 		$string = "";
 		while($r=$query->fetch(PDO::FETCH_OBJ)){
 			$string .= $r->assignedTo. '<br>';
-			// $string .= '<p class="input-field col s4">
-   //        						<input type="checkbox" class="filled-in" id="'.$r->assignedTo.'" checked="checked" />
-   //        						<label for="'.$r->assignedTo.'">'.$r->assignedTo.'</label>
-   //      					</p>';
+			$string .= '<p class="input-field col s4">
+          						<input type="checkbox" class="filled-in" id="'.$r->assignedTo.'"  />
+          						<label for="'.$r->assignedTo.'">'.$r->assignedTo.'</label>
+        					</p>';
 		}
 		return $string;
 	}

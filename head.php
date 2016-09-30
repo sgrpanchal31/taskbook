@@ -40,7 +40,7 @@ if($_SESSION['position']!=1){
 			      </ul>
 			      <ul class="side-nav" id="mobile-demo">
 			        	<li><a href="logout.php">Logout</a></li>
-			        	<li><a href="logout.php" >Logout</a></li>
+			        	<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Notification<span class="new badge blue">4</span></a></li>
 			      </ul>
 			</div>
 	    </div>
@@ -64,27 +64,27 @@ if($_SESSION['position']!=1){
           					<label for="textarea1">Write the task</label>
         				</div>
                         <div class="row col s12" id="availSubHead">
-            				<!-- <p class="input-field col s4">
-          						<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+            				<p class="input-field col s4">
+          						<input type="checkbox" class="filled-in" id="filled-in-box" name="locationthemes" value='loda'/>
           						<label for="filled-in-box">Filled in</label>
         					</p>
         					<p class="input-field col s4">
-          						<input type="checkbox" class="filled-in" id="filled-in-box" disabled="disabled" checked="checked" />
+          						<input type="checkbox" class="filled-in" id="filled-in-box" name="locationthemes" />
           						<label for="filled-in-box">Filled in</label>
         					</p>
         					<p class="input-field col s4">
-          						<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+          						<input type="checkbox" class="filled-in" id="filled-in-box" name="locationthemes" />
           						<label for="filled-in-box">Filled in</label>
         					</p>
         					<p class="input-field col s4">
-          						<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+          						<input type="checkbox" class="filled-in" id="filled-in-box" name="locationthemes" />
           						<label for="filled-in-box">Filled in</label>
-        					</p> -->
+        					</p>
                         </div>
   					</div>
     			</div>
     			<div class="modal-footer">
-    				<a href="#!" class="waves-effect waves-green btn-flat ">submit</a>
+    				<a href="#!" class="waves-effect waves-green btn-flat" id="submit">submit</a>
       				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">dismiss</a>
     			</div>
   	</div>
