@@ -95,31 +95,61 @@ class allSubHead{
 		$subheads = $this->selectTable();
 		$string = "";
 		foreach($subheads as $subhead){
-			$string .= $subhead->line;
+			if($subhead->status == 0){
+				$string .= $subhead->line;
+			}
 		}
 		return $string;
 	}
 	public function showAvailSubHead() {	
 		$number=0;
-		//$query=$this->db->prepare('SELECT DISTINCT `assignedTo` FROM `taskTable` WHERE `status`!=:number1 - SELECT DISTINCT `assignedTo` FROM `taskTable` WHERE `status`=:number1' );
-		$query=$this->db->prepare('SELECT DISTINCT `t1`.`assignedTo` FROM `taskTable` `t1` WHERE `t1`.`status`!=:number1 LEFT JOIN `taskTable` `t2` ON `t1`.`assignedTo` = `t2`.`assignedTo` WHERE `t2`.`status`=:number1 AND `t2`.`taskTable` NULL' );
-		$query->execute(array(':number1'=>$number, 'number2'=>$number));
-		//$r=$query->fetch(PDO::FETCH_ASSOC);
+		$query=$this->db->prepare('SELECT DISTINCT assignedTo FROM taskTable WHERE assignedTo NOT IN (SELECT assignedTo FROM taskTable WHERE status=0)' );
+		$query->execute();
 		$string = "";
 		while($r=$query->fetch(PDO::FETCH_OBJ)){
-			$string .= $r->assignedTo. '<br>';
+
 			$string .= '<p class="input-field col s4">
-          						<input type="checkbox" class="filled-in" id="'.$r->assignedTo.'"  />
+          						<input type="checkbox" class="filled-in" name="checkSubHead" id="'.$r->assignedTo.'" value="'.$r->assignedTo.'"  />
           						<label for="'.$r->assignedTo.'">'.$r->assignedTo.'</label>
         					</p>';
 		}
 		return $string;
 	}
+	public function assignTask($task, $names) {
+		try{
+			$string = explode(",",$names,-1);
+			$assignedBy=$_SESSION['username'];
+			$status = 0;
+			foreach ($string as $value) {
+				$qString = "INSERT INTO taskTable (assignedBy, assignedTo, task, status, assignedTime) VALUES (:assignedBy, :assignedTo, :task, :status, NOW())";
+				$query=$this->db->prepare($qString);
+				$query->execute(array(':assignedBy'=>$assignedBy, ':assignedTo'=>$value, ':task'=>$task, ':status'=>$status));
+			}
+			echo "Task successfully assigned";
+		}
+		catch(PDOException $e){
+    		echo "Error: " . $e->getMessage();
+    	}
+	}
+	public function saveTask($assignedTo, $task) {
+		try{
+			$query=$this->db->prepare("UPDATE taskTable SET task=:task WHERE assignedTo=:assignedTo");
+			$query->execute(array(':task'=>$task,':assignedTo'=>$assignedTo));
+			echo "Task Updated";
+		}
+		catch(PDOException $e){
+    		echo "Error: " . $e->getMessage();
+    	}
+	}
 }
-
+//TODO
+//change the text field to table column tr in head.php after updating the task see line 62 of head.js for inspiration
+//refresh table in subhead.php instead of reloading whole page
+//try showing notifications in the notifications bar in head.php(there are two notification one in nav bar and second in side navbar in mobile view)
+//on assigning task, success function close the modal and empty the form values
+//if possible edit task should edit task of each subhead who are given the same task
+//TYPE DONE IN FRONT OF THEM IF DONE
 ?>
-
-
 
 
 

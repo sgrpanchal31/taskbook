@@ -6,51 +6,56 @@ if(isset($_REQUEST['actionfunction']) && $_REQUEST['actionfunction']!=''){
 	$actionfunction = $_REQUEST['actionfunction'];
 	call_user_func($actionfunction,$_REQUEST,$conn);
 }
-
+//===============subHead.php functions======================
 function showData($data,$conn){
-	$user_check=$_SESSION['username'];
-
-	// $query = $conn->query('SELECT * FROM taskAssign');
-	// $subheads = $query->fetchAll(PDO::FETCH_CLASS, "subHead");
-	// $string = "";
-	// foreach($subheads as $subhead){
-	// 	$string .= $subhead->str;
-	// }
 	$object = new allSubHead($conn);
 	$string = $object->importData();
-
-	
-	// while($r = $query->fetch(PDO::FETCH_OBJ)) {
-	// 	$string += $r->str;
-	// 	echo "susername, <br>";
-	// }
 
 	echo $string;
 }
 function taskData($data,$conn){
-	$object1 = new allSubHead($conn);
-	$task= $object1->taskData($_SESSION['username']);
+	$object = new allSubHead($conn);
+	$task= $object->taskData($_SESSION['username']);
+
 	echo $task;
 }
 function finish($data,$conn){
-	$object2 = new allSubHead($conn);
-	$value= $object2->finish($_SESSION['username']);
-	echo $value;
+	$object = new allSubHead($conn);
+	$value= $object->finish($_SESSION['username']);
 
+	echo $value;
 }
 //===============head.php functions======================
 function showDataHead($data,$conn){
-
-	$object3 = new allSubHead($conn);
-	$string = $object3->importsubHeadData();
+	$object = new allSubHead($conn);
+	$string = $object->importsubHeadData();
 	echo $string;
 }
 function showAvailSubHead($data,$conn){
-	$object4 = new allSubHead($conn);
-	$string = $object4->showAvailSubHead();
+	$object = new allSubHead($conn);
+	$string = $object->showAvailSubHead();
 	echo $string;
 }
+function assignTask($data,$conn) {
+	if (!empty($_POST)){
+		$task = $_POST['task'];
+		$names = $_POST['names'];
+		$object = new allSubHead($conn);
+		$string = $object->assignTask($task,$names);
 
+		echo $string;
+	}
+}
+function saveTask($data,$conn){
+	if (!empty($_POST)){
+		$task = $_POST['task'];
+		$assignedTo = $_POST['assignedTo'];
+		$object = new allSubHead($conn);
+		$string = $object->saveTask($assignedTo,$task);
+
+		echo $string;
+	}
+}
 ?>
 
 

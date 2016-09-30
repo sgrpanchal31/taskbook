@@ -21,9 +21,7 @@ $(document).ready(function(){
 			data:"actionfunction=taskData",
       		cache: false,
       	    success: function(response){
-      	    	 // console.log(response);
-      	    	 if(parseInt(response)!=0){	
-      	    	  	// alert(response);	 
+      	    	 if(parseInt(response)!=0){	 
 					$('.response').html(response);
 					$('.finish').prop("disabled",false);
 				 }
@@ -38,31 +36,9 @@ $(document).ready(function(){
 				$('.response').html();
 			}	
 		});
-	});
-
-// 	$('.finish').click($(function(){
-// 		$.ajax({
-// 	    	url:"taskbook.php",
-//       	 	type:"POST",
-// 			data:"actionfunction=finish",
-//       		cache: false,
-//       	    success: function(response){
-//       	    	 if(response!=1){		 
-// 					$('.finish').attr(disable);
-// 				 }
-// 				if(response==''){		 
-// 					$('.response').html("No task Assigned");
-// 				}
-// 			},
-// 			error: function(){
-// 				$('.response').html();
-// 			}	
-// 		});
-// 	});
-// });	
+	});	
 });
 $('.finish').click(function(){
-	// console.log('rty');
 	$.ajax({
     	url:"taskbook.php",
   	 	type:"POST",
