@@ -93,8 +93,9 @@ CREATE TABLE `taskbook`.`taskTable` (
   `assignedBy` varchar(30) NOT NULL,
   `assignedTo` varchar(30) NOT NULL,
   `task` varchar(255) NOT NULL,
+  `taskID` int(11) ,
   `status` int(2) NOT NULL,
-  `assignedTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `assignedTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `completedTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

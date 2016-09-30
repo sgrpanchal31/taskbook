@@ -69,7 +69,7 @@ class allSubHead{
 			$query->execute(array(':username'=>$username));
 			while($r=$query->fetch(PDO::FETCH_ASSOC)){
 				if($r['status']==0){
-					  $sql =$this->db->prepare("UPDATE taskTable SET status=1 WHERE assignedTo=:username");
+					  $sql =$this->db->prepare("UPDATE taskTable SET status=1,completedTime=NOW() WHERE assignedTo=:username");
 				 	  $t = $sql->execute(array(':username'=>$username));
 						return $t;
 				}
@@ -105,15 +105,15 @@ class allSubHead{
 		}
 		return $string;
 	}
-	public function assignTask($task, $names) {
+	public function assignTask($task, $names, $taskID) {
 		try{
 			$string = explode(",",$names,-1);
 			$assignedBy=$_SESSION['username'];
 			$status = 0;
 			foreach ($string as $value) {
-				$qString = "INSERT INTO taskTable (assignedBy, assignedTo, task, status, assignedTime) VALUES (:assignedBy, :assignedTo, :task, :status, NOW())";
+				$qString = "INSERT INTO taskTable (assignedBy, assignedTo, task, taskID, status, assignedTime) VALUES (:assignedBy, :assignedTo, :task, :taskID, :status, NOW())";
 				$query=$this->db->prepare($qString);
-				$query->execute(array(':assignedBy'=>$assignedBy, ':assignedTo'=>$value, ':task'=>$task, ':status'=>$status));
+				$query->execute(array(':assignedBy'=>$assignedBy, ':assignedTo'=>$value, ':task'=>$task,':taskID'=>$taskID, ':status'=>$status));
 			}
 			echo "Task successfully assigned";
 		}

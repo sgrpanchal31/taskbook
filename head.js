@@ -33,9 +33,12 @@ $(document).ready(function(){
 
 			});
 		});
+		var count;
 		$(document).on('click', '#submit', function(){
+			count=Math.floor(Math.random()*100000);
+
 			var task = $('#textarea1').val();
-			var data = 'task='+task+'&names=';
+			var data = 'taskID='+count+'&task='+task+'&names=';
 			var counter = 0;
 			$('input[name="checkSubHead"]:checked').each(function() {
 				counter++;

@@ -38,10 +38,11 @@ function showAvailSubHead($data,$conn){
 }
 function assignTask($data,$conn) {
 	if (!empty($_POST)){
+		$taskID = $_POST['taskID'];
 		$task = $_POST['task'];
 		$names = $_POST['names'];
 		$object = new allSubHead($conn);
-		$string = $object->assignTask($task,$names);
+		$string = $object->assignTask($task,$names,$taskID);
 
 		echo $string;
 	}
