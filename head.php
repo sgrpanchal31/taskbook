@@ -62,30 +62,17 @@ if($_SESSION['position']!=1){
 	<div id="modal1" class="modal modal-fixed-footer">
     			<div class="modal-content">
       				<h4>Assign Task</h4>
+      				<form id="form1">
       				<div class="row">
         				<div class="input-field col s12">
           					<textarea id="textarea1" class="materialize-textarea"></textarea>
           					<label for="textarea1">Write the task</label>
         				</div>
                         <div class="row col s12" id="availSubHead">
-            				<!-- <p class="input-field col s4">
-          						<input type="checkbox" class="filled-in" id="filled-in-box" name="locationthemes" value='loda'/>
-          						<label for="filled-in-box">Filled in</label>
-        					</p>
-        					<p class="input-field col s4">
-          						<input type="checkbox" class="filled-in" id="filled-in-box" name="locationthemes" />
-          						<label for="filled-in-box">Filled in</label>
-        					</p>
-        					<p class="input-field col s4">
-          						<input type="checkbox" class="filled-in" id="filled-in-box" name="locationthemes" />
-          						<label for="filled-in-box">Filled in</label>
-        					</p>
-        					<p class="input-field col s4">
-          						<input type="checkbox" class="filled-in" id="filled-in-box" name="locationthemes" />
-          						<label for="filled-in-box">Filled in</label>
-        					</p> -->
+            				
                         </div>
   					</div>
+  					</form>
     			</div>
     			<div class="modal-footer">
     				<a href="#!" class="waves-effect waves-green btn-flat" id="submit">submit</a>

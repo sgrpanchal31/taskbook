@@ -3,7 +3,7 @@ $(document).ready(function(){
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
 
-    $(function(){
+    function showDataHead(){
 		$.ajax({
 	    	url:"taskbook.php",
       	 	type:"POST",
@@ -16,6 +16,8 @@ $(document).ready(function(){
 				$('#headTable').html("Can't load the data");
 			}	
 		});
+	};
+	showDataHead();
 		$(document).on('click', '#assign', function(){
 			$.ajax({
 		    	url:"taskbook.php",
@@ -40,7 +42,7 @@ $(document).ready(function(){
  				data += $(this).val()+',';
 			});
 			if(task == "" || counter == 0){
-				alert("Please fill all inputs");
+				Materialize.toast('Please fill in all the fields!', 5000);
 			}else{
 				$('#submit').addClass('disabled');
 				$.ajax({
@@ -49,8 +51,12 @@ $(document).ready(function(){
 					data:data+"&actionfunction=assignTask",
 		      		cache: false,
 		      	    success: function(response){		 
-		      	    	alert(response);
+		      	    	Materialize.toast(response, 4000);
+
 		      	    	$('#submit').removeClass('disabled');
+		      	    	 $("#form1").trigger("reset");
+		      	    	 $('#modal1').closeModal();
+		      	    	 showDataHead();
 					},
 					error: function(){
 						alert("There is some problem ");				
@@ -59,6 +65,20 @@ $(document).ready(function(){
 			}
 		});
 		var pre_tds;
+		function editTask(){
+			var edittrid = $(this).parent().parent().attr('id');
+			var tdstr = "";
+			var tds = $('#'+edittrid).children('td');
+			pre_tds = tds;
+			var username = tds.eq(0).text();
+			var task = tds.eq(1).text();
+
+			tdstr += "<td id='assignedTo'>"+username+"</td>";
+			tdstr += '<td><input value="'+task+'" id="editTask" type="text" class="validate"></td>';
+			tdstr += "<td><button class='btn waves-effect waves-light cyan savebtn' type='submit' name='action'>save</button></td>"
+			$('#'+edittrid).html(tdstr);
+
+		};
 		$(document).on('click','.editbtn',function(){
 			var edittrid = $(this).parent().parent().attr('id');
 			var tdstr = "";
@@ -78,10 +98,10 @@ $(document).ready(function(){
 			var assignedTo = $('#assignedTo').html();
 			var data = "assignedTo="+assignedTo+"&task="+task+"&actionfunction=saveTask";
 			if(task == "" || assignedTo=="" || data == ""){
-				alert("Please fill all fields");
+				Materialize.toast('Please fill in all the fields!', 5000);
 			}else{
 				$('#savebtn').addClass('disabled');
-				console.log(data);
+				
 				$.ajax({
 			    	url:"taskbook.php",
 		      	 	type:"POST",
@@ -89,17 +109,17 @@ $(document).ready(function(){
 		      		cache: false,
 		      	    success: function(response){
 
-		      	    	alert(response);
+		      	    	Materialize.toast(response, 5000);
 		      	    	$('#submit').removeClass('disabled');
-						window.location.reload();
+						showDataHead();
 					},
 					error: function(response){
-						alert(response);				
+						Materialize.toast(response, 5000);				
 					}	
 				});
 			}
 		});
-    });
+    
 });
 
 

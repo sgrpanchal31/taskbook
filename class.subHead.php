@@ -5,9 +5,7 @@ class subHead{
 	$line;
 	public function __construct() {
 		
-		// else if($this->assignedTo==0  || $this->status==1){
-		// 		$_SESSION['task']='No task Assigned';
-		// 	}
+		
 
 			$this->line = "<tr id=".$this->assignedTo.">
             				<td>".$this->assignedTo."</td>
@@ -39,8 +37,7 @@ class allSubHead{
 	}
 	//=====================subhead.php functions====================
 	public function importData() {
-		// $query = $this->db->query('SELECT * FROM taskTable');
-		// $subheads = $query->fetchAll(PDO::FETCH_CLASS, "subHead");
+		
 		$subheads = $this->selectTable();
 		$string = "";
 		foreach($subheads as $subhead){
@@ -57,21 +54,14 @@ class allSubHead{
 				if($r['status']==0 ){
 			  		$task=$r['task'];
 				}
-				// else{
 				
-				// 	return 'No task Assigned';
-				// }
 			};
 			if($task!=null){
 				return $task;
 			} else{
 			return 0;
 			}
-			// if($this->assignedTo==$_SESSION['username'] && $this->status==0){
 			
-			// 	$_SESSION['task']=$this->task;
-			
-			// }
 	
 	}
 	public function finish($username){
@@ -133,7 +123,7 @@ class allSubHead{
 	}
 	public function saveTask($assignedTo, $task) {
 		try{
-			$query=$this->db->prepare("UPDATE taskTable SET task=:task WHERE assignedTo=:assignedTo");
+			$query=$this->db->prepare("UPDATE taskTable SET task=:task WHERE assignedTo=:assignedTo AND status=0");
 			$query->execute(array(':task'=>$task,':assignedTo'=>$assignedTo));
 			echo "Task Updated";
 		}
@@ -143,10 +133,10 @@ class allSubHead{
 	}
 }
 //TODO
-//change the text field to table column tr in head.php after updating the task see line 62 of head.js for inspiration
-//refresh table in subhead.php instead of reloading whole page
+//change the text field to table column tr in head.php after updating the task see line 62 of head.js for inspiration   DONE
+//refresh table in subhead.php instead of reloading whole page 		DONE
 //try showing notifications in the notifications bar in head.php(there are two notification one in nav bar and second in side navbar in mobile view)
-//on assigning task, success function close the modal and empty the form values
+//on assigning task, success function close the modal and empty the form values      DONE
 //if possible edit task should edit task of each subhead who are given the same task
 //TYPE DONE IN FRONT OF THEM IF DONE
 ?>

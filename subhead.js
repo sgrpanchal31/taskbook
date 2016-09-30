@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$(".button-collapse").sideNav();
-	$(function(){
+	function showData(){
 		$.ajax({
 	    	url:"taskbook.php",
       	 	type:"POST",
@@ -13,8 +13,8 @@ $(document).ready(function(){
 				$('#tableBody').html("Can't load the data");
 			}	
 		});
-	});
-	$(function(){
+	};
+	function taskData(){
 		$.ajax({
 	    	url:"taskbook.php",
       	 	type:"POST",
@@ -36,19 +36,22 @@ $(document).ready(function(){
 				$('.response').html();
 			}	
 		});
-	});	
-});
-$('.finish').click(function(){
-	$.ajax({
-    	url:"taskbook.php",
-  	 	type:"POST",
-		data:"actionfunction=finish",
-  		cache: false,
-  	    success: function(response){
-  	    	window.location.reload();
-		},
-		error: function(){
-				
-		}	
+	};	
+	showData();
+	taskData();
+	$('.finish').click(function(){
+		$.ajax({
+	    	url:"taskbook.php",
+	  	 	type:"POST",
+			data:"actionfunction=finish",
+	  		cache: false,
+	  	    success: function(response){
+	  	    	showData();
+	  	    	taskData();
+			},
+			error: function(){
+					
+			}	
+		});
 	});
 });
