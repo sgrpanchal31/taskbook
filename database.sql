@@ -69,18 +69,18 @@ CREATE TABLE `taskbook`.`taskAssign` (
 --
 
 INSERT INTO `taskbook`.`taskAssign` (`ID`, `username`, `task`, `assignedby`) VALUES
-(1, 'sagar', 'Rock the party!', 'harsh'),
+(1, 'sagar', NULL, NULL),
 (2, 'ashutosh', NULL, NULL),
 (4, 'dipramit', NULL, NULL),
 (5, 'isha', NULL, NULL),
-(6, 'shivanshu', 'raftaar', 'ankit'),
-(7, 'rishit', 'krssg rockr', 'rohitkumar'),
-(8, 'paras', 'kuch bhi', 'harsh'),
+(6, 'shivanshu', NULL, NULL),
+(7, 'rishit', NULL, NULL),
+(8, 'paras', NULL, NULL),
 (9, 'sahil', NULL, NULL),
 (10, 'shubham', NULL, NULL),
-(11, 'abhinav', 'adadasdada', 'himanshu'),
+(11, 'abhinav', NULL, NULL),
 (12, 'harshit', NULL, NULL),
-(13, 'pradhumn', 'dfsdfsdfsf.sd fsd', 'rohitboga');
+(13, 'pradhumn', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -102,6 +102,20 @@ CREATE TABLE `taskbook`.`taskTable` (
 --
 -- Indexes for dumped tables
 --
+INSERT INTO `taskbook`.`taskTable`(`ID`,`assignedBy`,`assignedTo`,`task`,`taskID`,`status`,`assignedTime`,`completedTime`) VALUES
+(1,'','sagar','','',2,'',''),
+(2,'','ashutosh','','',2,'',''),
+(3,'','dipramit','','',2,'',''),
+(4,'','isha','','',2,'',''),
+(5,'','shivanshu','','',2,'',''),
+(6,'','rishit','','',2,'',''),
+(7,'','paras','','',2,'',''),
+(8,'','sahil','','',2,'',''),
+(9,'','shubham','','',2,'',''),
+(10,'','abhinav','','',2,'',''),
+(11,'','harshit','','',2,'',''),
+(12,'','pradhumn','','',2,'','');
+
 
 --
 -- Indexes for table `memberLogIn`
