@@ -96,6 +96,29 @@ $(document).ready(function(){
 			$('#'+edittrid).html(tdstr);
 
 		});
+		$(document).on('click','.delbtn',function(){
+			var deltrid = $(this).parent().parent().attr('id');
+			var tdstr = "";
+			var tds = $('#'+deltrid).children('td');
+			pre_tds = tds;
+			var username = tds.eq(0).text();
+			var task = tds.eq(1).text();
+			var data = "assignedTo="+username+"&task="+task+"&actionfunction=deleteData";
+			$.ajax({
+				url:"taskbook.php",
+				type:"POST",
+				data:data,
+				cache: false,
+				success: function(response){
+					Materialize.toast(response, 5000);
+					showDataHead();
+				},
+				error: function(response){
+
+				}
+			});
+
+		});
 		$(document).on('click', '.savebtn', function(){
 			var task = $('#editTask').val();
 			var assignedTo = $('#assignedTo').html();

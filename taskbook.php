@@ -31,6 +31,15 @@ function showDataHead($data,$conn){
 	$string = $object->importsubHeadData();
 	echo $string;
 }
+function deleteData($data,$conn){
+	if (!empty($_POST)){
+		$assignedTo = $_POST['assignedTo'];
+		$task = $_POST['task'];
+		$object = new allSubHead($conn);
+		$string = $object->deleteData($assignedTo,$task);
+		echo $string;
+	}
+}
 function showAvailSubHead($data,$conn){
 	$object = new allSubHead($conn);
 	$string = $object->showAvailSubHead();

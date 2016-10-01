@@ -13,6 +13,8 @@ class subHead{
             				<td>
             					<button class='btn waves-effect waves-light cyan editbtn' type='submit' name='action'>edit
   								</button>
+  								<button class='btn waves-effect waves-light cyan delbtn' type='submit' name='action'>delete
+  								</button>
   							</td>
           				</tr>";
 
@@ -104,6 +106,11 @@ class allSubHead{
         					</p>';
 		}
 		return $string;
+	}
+	public function deleteData($assignedTo,$task){
+		$query=$this->db->prepare('DELETE FROM taskTable WHERE assignedTo=:assignedTo AND task=:task');
+		$query->execute(array(':assignedTo'=>$assignedTo, ':task'=>$task));
+		echo "Task Deleted";
 	}
 	public function assignTask($task, $names, $taskID) {
 		try{
