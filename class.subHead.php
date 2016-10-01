@@ -71,7 +71,7 @@ class allSubHead{
 			$query->execute(array(':username'=>$username));
 			while($r=$query->fetch(PDO::FETCH_ASSOC)){
 				if($r['status']==0){
-					  $sql =$this->db->prepare("UPDATE taskTable SET status=1,completedTime=NOW() WHERE assignedTo=:username");
+					  $sql =$this->db->prepare("UPDATE taskTable SET status=1,completedTime=NOW(),notification=1 WHERE assignedTo=:username");
 				 	  $t = $sql->execute(array(':username'=>$username));
 						return $t;
 				}
@@ -82,7 +82,27 @@ class allSubHead{
  			return true;
 	}
 	//======================head.php functions====================
+	public function notifyHead(){
+		$username=$_SESSION['username'];
+		$query=$this->db->prepare('SELECT * FROM taskTable WHERE assignedBy=:username AND notification=1');
+		$query->execute(array(':username'=>$username));
+		$str="";
+		while($r=$query->fetch(PDO::FETCH_ASSOC)){
+			$str.='<li><a href="#!">Work given to '.$r['assignedTo'].' is complete.</a></li>';
+		}
+		if($str!=''){
+			return $str;
+		}else{
+			return 0;
+		}
+	}
+	public function notifiedHead(){
+		$username=$_SESSION['username'];
+		$query=$this->db->prepare('UPDATE taskTable SET notification=0 WHERE assignedBy=:username AND notification=1');
+		$query->execute(array(':username'=>$username));
+		echo 'notification is 0 now';
 
+	}
 	public function importsubHeadData() {
 		$subheads = $this->selectTable();
 		$string = "";
@@ -142,7 +162,7 @@ class allSubHead{
 //TODO
 //change the text field to table column tr in head.php after updating the task see line 62 of head.js for inspiration   DONE
 //refresh table in subhead.php instead of reloading whole page 		DONE
-//try showing notifications in the notifications bar in head.php(there are two notification one in nav bar and second in side navbar in mobile view)
+//try showing notifications in the notifications bar in head.php(there are two notification one in nav bar and second in side navbar in mobile view)	DONE
 //on assigning task, success function close the modal and empty the form values      DONE
 //if possible edit task should edit task of each subhead who are given the same task
 //TYPE DONE IN FRONT OF THEM IF DONE

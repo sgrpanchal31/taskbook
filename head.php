@@ -28,22 +28,22 @@ if($_SESSION['position']!=1){
 			      	<a href="#!" class="brand-logo" style="font-weight: 300;">Taskbook</a>
 			      	<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			      	<ul id="dropdown1" class="dropdown-content">
-  						<li><a href="#!">one</a></li>
+  						<!-- <li><a href="#!">one</a></li>
   						<li><a href="#!">two</a></li>
-					    <li><a href="#!">three</a></li>
+					    <li><a href="#!">three</a></li> -->
 					</ul>
 			      	<ul class="right hide-on-med-and-down">
 			        	
-			        	<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Notification<span class="new badge blue">4</span></a></li>
+			        	<li><a class="dropdown-button notify" href="#!" data-activates="dropdown1">Notification</a></li>
 			        	<li><a href="logout.php" >Logout</a></li>
 			      </ul>
 			      <ul class="side-nav" id="mobile-demo">
 			        	<li><a href="logout.php">Logout</a></li>
-			        	<li><a class="dropdown-button" href="#!" data-activates="dropdown2">Notification<span class="new badge blue">4</span></a></li>
+			        	<li><a class="dropdown-button notify2" href="#!" data-activates="dropdown2">Notification</a></li>
 			        	<ul id="dropdown2" class="dropdown-content">
-	  						<li><a href="#!">one</a></li>
+	  						<!-- <li><a href="#!">one</a></li>
 	  						<li><a href="#!">two</a></li>
-						    <li><a href="#!">three</a></li>
+						    <li><a href="#!">three</a></li> -->
 						</ul>
 			      </ul>
 			</div>

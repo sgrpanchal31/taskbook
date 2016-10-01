@@ -40,6 +40,16 @@ function deleteData($data,$conn){
 		echo $string;
 	}
 }
+function notifyHead($data,$conn){
+	$object = new allSubHead($conn);
+	$string = $object->notifyHead();
+	echo $string;
+}
+function notifiedHead($data,$conn){
+	$object = new allSubHead($conn);
+	$string = $object->notifiedHead();
+	echo $string;
+}
 function showAvailSubHead($data,$conn){
 	$object = new allSubHead($conn);
 	$string = $object->showAvailSubHead();

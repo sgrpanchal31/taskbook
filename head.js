@@ -2,7 +2,28 @@ $(document).ready(function(){
     $('.modal-trigger').leanModal();
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
+    $(document).ready(function(){
+			$.ajax({
+				url:'taskbook.php',
+				type:'POST',
+				data:"actionfunction=notifyHead",
+				cache: false,
+				success: function(response){
+					// alert(response);
+					if(parseInt(response)!=0){
+						$('.notify').html('Notifications<span class="new badge blue"></span>');
+						$('.notify2').html('Notifications<span class="new badge blue"></span>');
+					}else{
+						$('.notify').html('Notifications');
+						$('.notify2').html('Notifications');
+					}
+					
+				},
+				error: function(response){
 
+				}
+			});
+		});
     function showDataHead(){
 		$.ajax({
 	    	url:"taskbook.php",
@@ -32,6 +53,68 @@ $(document).ready(function(){
 				}	
 
 			});
+		});
+		var ajaxFn= function(){
+			$.ajax({
+				url:'taskbook.php',
+				type:'POST',
+				data:"actionfunction=notifiedHead",
+				cache: false,
+				success: function(response){
+					console.log(response);
+				},
+				error: function(response){
+
+				}
+			});
+		}
+		$('.notify').click(function(){
+			$.ajax({
+				url:'taskbook.php',
+				type:'POST',
+				data:"actionfunction=notifyHead",
+				cache: false,
+				success: function(response){
+					// console.log(response);
+					if(response!=0){
+						$('#dropdown1').html(response);
+						$('.notify').html('Notifications');
+						$('#dropdown2').html(response);
+						$('.notify2').html('Notifications');
+					}else{
+						$('#dropdown1').html('');
+						$('#dropdown2').html('');
+					}
+				},
+				error: function(response){
+
+				}
+			});
+			setTimeout(ajaxFn, 5000);
+		});
+		$('.notify2').click(function(){
+			$.ajax({
+				url:'taskbook.php',
+				type:'POST',
+				data:"actionfunction=notifyHead",
+				cache: false,
+				success: function(response){
+					// console.log(response);
+					if(response!=0){
+						$('#dropdown1').html(response);
+						$('.notify').html('Notifications');
+						$('#dropdown2').html(response);
+						$('.notify2').html('Notifications');
+					}else{
+						$('#dropdown1').html('');
+						$('#dropdown2').html('');
+					}
+				},
+				error: function(response){
+
+				}
+			});
+			setTimeout(ajaxFn, 5000);
 		});
 		var count;
 		$(document).on('click', '#submit', function(){
