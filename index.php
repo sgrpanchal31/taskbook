@@ -7,7 +7,7 @@
 		header("location: head.php");
 	}
 
-	if(isset($_POST['action'])){
+	if($_POST['username']!=null && $_POST['password']!=null && isset($_POST['action'])){
 		$username=$_POST['username'];
 		$password=$_POST['password'];
 		// echo $user1->login($username,$password);
