@@ -90,7 +90,7 @@ $(document).ready(function(){
 
 				}
 			});
-			setTimeout(ajaxFn, 5000);
+			setTimeout(ajaxFn, 1000);
 		});
 		$('.notify2').click(function(){
 			$.ajax({
@@ -114,7 +114,7 @@ $(document).ready(function(){
 
 				}
 			});
-			setTimeout(ajaxFn, 5000);
+			setTimeout(ajaxFn, 1000);
 		});
 		var count;
 		$(document).on('click', '#submit', function(){
